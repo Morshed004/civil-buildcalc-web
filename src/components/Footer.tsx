@@ -1,88 +1,55 @@
-import { useState } from "react";
-import { Link } from "react-router-dom";
-import { TOOLS } from "@/lib/tools";
-
 export function Footer() {
-  const [showAll, setShowAll] = useState(false);
-
-  // প্রথম ৫টি টুলস আলাদা করা
-  const displayedTools = showAll ? TOOLS : TOOLS.slice(0, 5);
-  const hasMoreTools = TOOLS.length > 5;
-
-  const scrollToTop = () => {
-    window.scrollTo({ top: 0, behavior: "smooth" });
-  };
-
   return (
-    <footer className="footer">
-      <div className="container footer__inner">
-        <div className="footer__brand">
-          <span className="brand__text">
+    <footer className="footer" style={{ borderTop: "1px solid rgba(255, 255, 255, 0.1)", padding: "40px 0 0", marginTop: "20px" }}>
+      <div className="container footer__inner" style={{ display: "flex", justifyContent: "space-between", alignItems: "flex-start", flexWrap: "wrap", gap: "30px", paddingBottom: "30px" }}>
+        
+        {/* ব্র্যান্ড সেকশন */}
+        <div className="footer__brand" style={{ flex: "1 1 280px" }}>
+          <span className="brand__text" style={{ fontSize: "1.25rem", fontWeight: "bold" }}>
             Civil<span className="brand__accent">BuildCalc</span>
           </span>
-          <p className="footer__tagline">
+          <p className="footer__tagline" style={{ marginTop: "8px", opacity: 0.8, fontSize: "0.95rem", lineHeight: "1.5" }}>
             Practical calculation tools for civil engineers, contractors and students.
           </p>
         </div>
 
-        <div className="footer__col">
-          <h4 className="footer__heading">Calculators</h4>
-          <ul className="footer__list">
-            {displayedTools.map((tool) => (
-              <li key={tool.id}>
-                <Link to={tool.path}>{tool.title}</Link>
-              </li>
-            ))}
-          </ul>
-
-          {hasMoreTools && (
-            <button
-              onClick={() => {
-                if (showAll) {
-                  // যদি 'Show less' করা হয়, তবে পেজের উপরের দিকে স্ক্রোল করবে
-                  scrollToTop();
-                }
-                setShowAll(!showAll);
-              }}
-              className="footer__view-all-btn"
-              style={{
-                background: "none",
-                border: "none",
-                color: "inherit",
-                cursor: "pointer",
-                padding: "4px 0",
-                marginTop: "8px",
-                textDecoration: "underline",
-                fontSize: "0.9rem",
-              }}
-            >
-              {showAll ? "Show less" : `View all (${TOOLS.length})`}
-            </button>
-          )}
-        </div>
-
-        <div className="footer__col">
-          <h4 className="footer__heading">Note</h4>
-          <p className="footer__note">
+        {/* নোট সেকশন */}
+        <div className="footer__col" style={{ flex: "1 1 280px" }}>
+          <h4 className="footer__heading" style={{ fontSize: "1rem", fontWeight: "600", marginBottom: "8px" }}>Note</h4>
+          <p className="footer__note" style={{ opacity: 0.8, fontSize: "0.9rem", lineHeight: "1.5" }}>
             Results are estimates. Verify all quantities against applicable design codes and
             site drawings before ordering materials.
           </p>
         </div>
       </div>
 
-      <div className="footer__bottom">
-        <div className="container footer__bottom-inner" style={{ display: "flex", justifyContent: "space-between", alignItems: "center", flexWrap: "wrap", gap: "10px" }}>
+      {/* ফুটারের নিচের অংশ (কপিরাইট এবং ডেভেলপার ইনফো) */}
+      <div className="footer__bottom" style={{ borderTop: "1px solid rgba(255, 255, 255, 0.05)", padding: "20px 0", marginTop: "20px" }}>
+        <div className="container footer__bottom-inner" style={{ display: "flex", justifyContent: "space-between", alignItems: "center", flexWrap: "wrap", gap: "15px", fontSize: "0.9rem" }}>
+          
           <span>© {new Date().getFullYear()} Civil BuildCalc. All rights reserved.</span>
-          <span className="footer__developer">
-            Developed by <strong>Golam Morshed</strong> |{" "}
-            <a href="YOUR_PORTFOLIO_LINK_HERE" target="_blank" rel="noopener noreferrer">
+          
+          <span className="footer__developer" style={{ display: "flex", alignItems: "center", gap: "8px" }}>
+            Developed by <strong style={{ fontWeight: "600" }}>Golam Morshed</strong> |{" "}
+            <a 
+              href="https://golam-morshed-portfolio.vercel.app/" 
+              target="_blank" 
+              rel="noopener noreferrer"
+              style={{ color: "inherit", textDecoration: "underline" }}
+            >
               Portfolio
             </a>{" "}
             |{" "}
-            <a href="YOUR_GITHUB_LINK_HERE" target="_blank" rel="noopener noreferrer">
+            <a 
+              href="https://github.com/Morshed004" 
+              target="_blank" 
+              rel="noopener noreferrer"
+              style={{ color: "inherit", textDecoration: "underline" }}
+            >
               GitHub
             </a>
           </span>
+
         </div>
       </div>
     </footer>
