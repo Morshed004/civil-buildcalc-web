@@ -5,30 +5,32 @@
 /* ---------- 1. Design tokens ---------- */
 :root {
   /* Brand colors */
-  --color-primary: #F5B82E;        /* Construction Yellow */
-  --color-primary-hover: #E4A71F;
-  --color-primary-soft: #FFF6DC;
-  --color-secondary: #252A31;      /* Deep Charcoal */
-  --color-accent: #E89A20;         /* Warm Orange */
+  --color-primary: #f5b82e; /* Construction Yellow */
+  --color-primary-hover: #e4a71f;
+  --color-primary-soft: #fff6dc;
+  --color-secondary: #252a31; /* Deep Charcoal */
+  --color-accent: #e89a20; /* Warm Orange */
 
   /* Surfaces */
-  --color-bg: #F8F9FA;
-  --color-card: #FFFFFF;
-  --color-border: #E5E7EB;
+  --color-bg: #f8f9fa;
+  --color-card: #ffffff;
+  --color-border: #e5e7eb;
 
   /* Text */
-  --color-text: #20252B;
-  --color-text-muted: #737B85;
-  --color-text-on-dark: #FFFFFF;
+  --color-text: #20252b;
+  --color-text-muted: #737b85;
+  --color-text-on-dark: #ffffff;
 
   /* Status */
-  --color-success: #1E8E4E;
-  --color-success-soft: #E8F6EE;
-  --color-error: #C62828;
-  --color-error-soft: #FDECEC;
+  --color-success: #1e8e4e;
+  --color-success-soft: #e8f6ee;
+  --color-error: #c62828;
+  --color-error-soft: #fdecec;
 
   /* Typography */
-  --font-sans: "Inter", "Segoe UI", system-ui, -apple-system, "Helvetica Neue", Arial, sans-serif;
+  --font-sans:
+    "Inter", "Segoe UI", system-ui, -apple-system, "Helvetica Neue", Arial,
+    sans-serif;
   --font-mono: "JetBrains Mono", "SFMono-Regular", Consolas, monospace;
   --fs-xs: 0.8125rem;
   --fs-sm: 0.9375rem;
@@ -106,7 +108,10 @@ svg {
   max-width: 100%;
 }
 
-h1, h2, h3, h4 {
+h1,
+h2,
+h3,
+h4 {
   margin: 0 0 var(--space-3);
   line-height: var(--lh-tight);
   color: var(--color-secondary);
@@ -169,11 +174,18 @@ select {
   gap: var(--space-5);
 }
 
-.text-center { text-align: center; }
-.text-muted { color: var(--color-text-muted); }
-.mt-4 { margin-top: var(--space-4); }
-.mb-4 { margin-bottom: var(--space-4); }
-
+.text-center {
+  text-align: center;
+}
+.text-muted {
+  color: var(--color-text-muted);
+}
+.mt-4 {
+  margin-top: var(--space-4);
+}
+.mb-4 {
+  margin-bottom: var(--space-4);
+}
 
 /* ---------- 4. Navigation ---------- */
 .navbar {
@@ -225,9 +237,11 @@ select {
 .navbar__link {
   padding: var(--space-2) var(--space-3);
   border-radius: var(--radius-sm);
-  color: #D5DAE1;
+  color: #d5dae1;
   font-weight: 500;
-  transition: color var(--transition-fast), background var(--transition-fast);
+  transition:
+    color var(--transition-fast),
+    background var(--transition-fast);
 }
 
 .navbar__link:hover {
@@ -252,8 +266,11 @@ select {
   font-weight: 600;
   font-size: var(--fs-sm);
   cursor: pointer;
-  transition: background var(--transition-fast), color var(--transition-fast),
-    border-color var(--transition-fast), transform var(--transition-fast);
+  transition:
+    background var(--transition-fast),
+    color var(--transition-fast),
+    border-color var(--transition-fast),
+    transform var(--transition-fast);
 }
 
 .btn:active {
@@ -307,15 +324,17 @@ select {
   border-radius: var(--radius-sm);
   background: var(--color-card);
   color: var(--color-text);
-  transition: border-color var(--transition-fast), box-shadow var(--transition-fast);
+  transition:
+    border-color var(--transition-fast),
+    box-shadow var(--transition-fast);
 }
 
 .input::placeholder {
-  color: #A3AAB3;
+  color: #a3aab3;
 }
 
 .input:hover {
-  border-color: #CBD0D6;
+  border-color: #cbd0d6;
 }
 
 .input:focus {
@@ -332,10 +351,6 @@ select {
 .input[type="number"]::-webkit-outer-spin-button {
   -webkit-appearance: none;
   margin: 0;
-}
-
-.input[type="number"] {
-  -moz-appearance: textfield;
 }
 
 .field__control:has(.field__suffix) .input {
@@ -433,7 +448,9 @@ select {
   color: var(--color-text-muted);
   font-weight: 600;
   cursor: pointer;
-  transition: color var(--transition-fast), background var(--transition-fast);
+  transition:
+    color var(--transition-fast),
+    background var(--transition-fast);
 }
 
 .segmented__option[aria-checked="true"] {
@@ -465,7 +482,9 @@ select {
   border: 1px solid var(--color-border);
   border-radius: var(--radius-lg);
   box-shadow: var(--shadow-sm);
-  transition: transform var(--transition-base), box-shadow var(--transition-base),
+  transition:
+    transform var(--transition-base),
+    box-shadow var(--transition-base),
     border-color var(--transition-base);
 }
 
@@ -532,8 +551,7 @@ select {
 .hero {
   position: relative;
   padding: var(--space-16) 0 var(--space-12);
-  background:
-    linear-gradient(135deg, var(--color-secondary) 0%, #33393F 100%);
+  background: linear-gradient(135deg, var(--color-secondary) 0%, #33393f 100%);
   color: var(--color-text-on-dark);
   overflow: hidden;
 }
@@ -565,7 +583,7 @@ select {
   max-width: 640px;
   margin: 0 0 var(--space-8);
   font-size: var(--fs-lg);
-  color: #C9CFD7;
+  color: #c9cfd7;
 }
 
 .search {
@@ -592,7 +610,9 @@ select {
   color: var(--color-text);
   font-size: var(--fs-base);
   box-shadow: var(--shadow-md);
-  transition: border-color var(--transition-fast), box-shadow var(--transition-fast);
+  transition:
+    border-color var(--transition-fast),
+    box-shadow var(--transition-fast);
 }
 
 .search__input:focus {
@@ -751,7 +771,7 @@ select {
 }
 
 .result-card--highlight .result-row__label {
-  color: #C9CFD7;
+  color: #c9cfd7;
 }
 
 .result-card--highlight .result-row__value {
@@ -879,7 +899,7 @@ select {
 .footer {
   margin-top: auto;
   background: var(--color-secondary);
-  color: #C9CFD7;
+  color: #c9cfd7;
   border-top: 3px solid var(--color-primary);
 }
 
@@ -934,7 +954,7 @@ select {
   border-top: 1px solid rgba(255, 255, 255, 0.08);
   padding: var(--space-4) 0;
   font-size: var(--fs-xs);
-  color: #9AA3AE;
+  color: #9aa3ae;
 }
 
 /* ---------- 14. Responsive breakpoints ---------- */
@@ -1023,15 +1043,6 @@ select {
     scroll-behavior: auto !important;
   }
 }
-
-/* ---------- 16. Page wrapper ---------- */
-.page-
-@media (max-width: 640px) {
-  .page-main {
-    padding: var(--space-5) 0 var(--space-8);
-  }
-}
-
 /* ---------- 17. Measure field (value + own unit) ---------- */
 .measure {
   display: flex;
@@ -1081,7 +1092,9 @@ select {
   font-weight: 600;
   font-size: var(--fs-xs);
   cursor: pointer;
-  transition: background var(--transition-fast), border-color var(--transition-fast);
+  transition:
+    background var(--transition-fast),
+    border-color var(--transition-fast);
 }
 
 .chip:hover {

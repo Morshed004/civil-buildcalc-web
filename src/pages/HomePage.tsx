@@ -7,7 +7,9 @@ import { ToolIcon, ArrowRightIcon, SearchIcon } from "@/components/icons";
 function matchesQuery(tool: ToolDefinition, query: string): boolean {
   const q = query.trim().toLowerCase();
   if (q === "") return true;
-  const haystack = [tool.title, tool.description, ...tool.keywords].join(" ").toLowerCase();
+  const haystack = [tool.title, tool.description, ...tool.keywords]
+    .join(" ")
+    .toLowerCase();
   return q.split(/\s+/).every((term) => haystack.includes(term));
 }
 
@@ -23,7 +25,10 @@ const item = {
 
 export function HomePage() {
   const [query, setQuery] = useState("");
-  const filtered = useMemo(() => TOOLS.filter((t) => matchesQuery(t, query)), [query]);
+  const filtered = useMemo(
+    () => TOOLS.filter((t) => matchesQuery(t, query)),
+    [query],
+  );
 
   return (
     <>
@@ -43,8 +48,9 @@ export function HomePage() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.4, delay: 0.08 }}
           >
-            Fast, accurate construction calculations for concrete volume, reinforcement steel,
-            piles, beams and columns, with rod lapping built in.
+            Fast, accurate construction calculations for concrete volume,
+            reinforcement steel, piles, beams and columns, with rod lapping
+            built in.
           </motion.p>
 
           <motion.div
@@ -53,7 +59,9 @@ export function HomePage() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.4, delay: 0.14 }}
           >
-            <span className="search__icon"><SearchIcon /></span>
+            <span className="search__icon">
+              <SearchIcon />
+            </span>
             <input
               type="search"
               className="search__input"
@@ -66,7 +74,7 @@ export function HomePage() {
         </div>
       </section>
 
-      <main id="tools">
+      <main id="tools" style={{ marginTop: "15px" }}>
         <div className="container">
           <div className="section-header">
             <h2 className="section-header__title">Calculation tools</h2>
@@ -77,7 +85,8 @@ export function HomePage() {
 
           {filtered.length === 0 ? (
             <div className="empty-state">
-              No tools match “{query}”. Try a different keyword such as concrete or steel.
+              No tools match “{query}”. Try a different keyword such as concrete
+              or steel.
             </div>
           ) : (
             <motion.div
@@ -88,7 +97,11 @@ export function HomePage() {
             >
               {filtered.map((tool) => (
                 <motion.div key={tool.id} variants={item}>
-                  <Link to={tool.path} className="tool-card" aria-label={`Open ${tool.title}`}>
+                  <Link
+                    to={tool.path}
+                    className="tool-card"
+                    aria-label={`Open ${tool.title}`}
+                  >
                     <span className="tool-card__icon">
                       <ToolIcon name={tool.icon} />
                     </span>
